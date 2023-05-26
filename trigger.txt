@@ -1,0 +1,11 @@
+MariaDB [online_food]> delimiter $$
+MariaDB [online_food]> create trigger ntrigger
+    -> after update on persons
+    -> for each row
+    -> begin
+    -> if new.grade<10 then
+    -> insert into new values(11,new.City);
+    -> end if;
+    -> end;
+    -> $$
+Query OK, 0 rows affected (0.293 sec)
